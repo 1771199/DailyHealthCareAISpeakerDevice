@@ -1,0 +1,3 @@
+--prefix=/usr
+--without-clisp
+--without-maximum-compile-warnings &&
