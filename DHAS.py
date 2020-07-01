@@ -263,7 +263,7 @@ def messageProcessing():  # 서버에서 받은 메시지를 유형에 따라 �
             playMP3File()
             canCall = True       
 
-        elif 'End' in msg in msg:  # 더 이상 받을 메시지가 없을 때 서버에서 받은 평균 시간 기록을 txt로 저장하고 마이크 입력을 중단. 
+        elif 'End' in msg:  # 더 이상 받을 메시지가 없을 때 서버에서 받은 평균 시간 기록을 txt로 저장하고 마이크 입력을 중단. 
             msg_flag = True
             listen = False
             micOff = True
@@ -378,7 +378,7 @@ def heartBeat(): # Pulse Sensor로 심박수를 측정하는 함수.
        nowTime = time.time()
        while int(nowTime - startTime) <= 12: # 12초 동안 측정.
             bpm = p.BPM
-            if bpm >= 60 and bpm < 84:  # Pulse Sensor가 비정상적인 값을 인식할 때, 평균 계산에 적용하지 않기 위함.
+            if bpm >= 50 and bpm <= 85:  # Pulse Sensor가 비정상적인 값을 인식할 때, 평균 계산에 적용하지 않기 위함.
                 bpmSum += bpm
                 count += 1 # 정확한 측정이 몇 번 수행되었는지 확인.
             nowTime = time.time()
